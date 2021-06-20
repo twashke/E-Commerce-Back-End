@@ -1,31 +1,55 @@
 const router = require('express').Router();
 const { Product, Category, Tag, ProductTag } = require('../../models');
 
-// The `/api/products` endpoint
+// -----------------------------------------|
+//          API Product Endpoint            | 
+// -----------------------------------------|
 
-// get all products
-router.get('/', (req, res) => {
-  // find all products
-  // be sure to include its associated Category and Tag data
+// Find All Products
+router.get('/', async (req, res) => {
+  try {
+    // Declare Product variable
+    const productData = await Product.findAll({
+      // Include associated Models (Category, Tag)
+      include: [{ model: Category, Tag }]
+    });
+    // Return OK Status and categoryData
+    res.status(200).json(productData);
+  // Catch for any errors
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
-// get one product
-router.get('/:id', (req, res) => {
-  // find a single product by its `id`
-  // be sure to include its associated Category and Tag data
+// Find one product by it's "id" value
+router.get('/:id', async (req, res) => {
+  try {
+    // Declare Product variable
+    const productData = await Product.findByPk(req.params.id, {
+      // Include associated Models (Category, Tag)
+      include: [{ model: Category, Tag }],
+    });
+    // If specified id is not found, send 404 response and message
+    if (!productData) {
+      res.status(404).json({ message: 'No Product found with that id!' });
+      return;
+    }
+    // Return OK Status and categoryData
+    res.status(200).json(productData);
+    // Catch for any errors
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 // create new product
 router.post('/', (req, res) => {
-  /* req.body should look like this...
-    {
-      product_name: "Basketball",
-      price: 200.00,
-      stock: 3,
-      tagIds: [1, 2, 3, 4]
-    }
-  */
-  Product.create(req.body)
+  Product.create({
+      product_name: req.body.product_name,
+      price: req.body.price,
+      stock: req.body.stock,
+      tagIds: req.body.tagIds
+  })
     .then((product) => {
       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
       if (req.body.tagIds.length) {
