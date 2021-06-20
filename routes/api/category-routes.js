@@ -13,7 +13,10 @@ router.get('/', async (req, res) => {
       // Declare Category variable
       const categoryData = await Category.findAll({
         // Include associated Product Model
-        include: [{ model: Product }]
+        include: { 
+          model: Product,
+          attributes: ["id", "product_name", "price", "stock", "category_id"]
+        }
       });
       // Return OK Status and categoryData
       res.status(200).json(categoryData);
@@ -29,7 +32,10 @@ router.get('/:id', async (req, res) => {
     // Declare Category variable
     const categoryData = await Category.findByPk(req.params.id, {
       // Include associated Product Model
-      include: [{ model: Product }],
+        include: { 
+          model: Product,
+          attributes: ["id", "product_name", "price", "stock", "category_id"]
+        }
     });
     // If specified id is not found, send 404 response and message
     if (!categoryData) {
