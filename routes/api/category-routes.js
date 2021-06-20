@@ -3,6 +3,10 @@ const router = require('express').Router();
 // Declare Required Models
 const { Category, Product } = require('../../models');
 
+// -----------------------------------------|
+//         API Category Endpoint            | 
+// -----------------------------------------|
+
 // Find All Categories
 router.get('/', async (req, res) => {
     try {
