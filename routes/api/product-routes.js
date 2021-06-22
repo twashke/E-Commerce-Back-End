@@ -10,8 +10,16 @@ router.get('/', async (req, res) => {
   try {
     // Declare Product variable
     const productData = await Product.findAll({
-      // Include associated Models (Category, Tag)
-      include: [{ model: Category, Tag }]
+      // Include associated Product Model
+      include: [
+        { 
+          model: Category,
+          attributes: ["category_name"]
+        }, {
+          model: Tag,
+          attributes: ["tag_name"]
+        } 
+      ]
     });
     // Return OK Status and categoryData
     res.status(200).json(productData);
@@ -27,7 +35,15 @@ router.get('/:id', async (req, res) => {
     // Declare Product variable
     const productData = await Product.findByPk(req.params.id, {
       // Include associated Models (Category, Tag)
-      include: [{ model: Category, Tag }],
+      include: [
+        { 
+          model: Category,
+          attributes: ["category_name"]
+        }, {
+          model: Tag,
+          attributes: ["tag_name"]
+        } 
+      ]
     });
     // If specified id is not found, send 404 response and message
     if (!productData) {
@@ -113,8 +129,25 @@ router.put('/:id', (req, res) => {
     });
 });
 
-router.delete('/:id', (req, res) => {
+// Delete Product by its "id" value
+router.delete('/:id', async (req, res) => {
   // delete one product by its `id` value
+  try {
+    // Declare Category variable
+    const productData = await Product.destroy({
+      where: { id: req.params.id }
+    });
+    // If specified id is not found, send 404 response and message
+    if (!productData) {
+      res.status(404).json({ message: 'No Product with this id!' });
+      return;
+    }
+    // Return OK Status and categoryData
+    res.status(200).json(productData);
+  // Catch for any errors
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;
