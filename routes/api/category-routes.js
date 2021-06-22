@@ -13,10 +13,7 @@ router.get('/', async (req, res) => {
       // Declare Category variable
       const categoryData = await Category.findAll({
         // Include associated Product Model
-        include: { 
-          model: Product,
-          attributes: ["id", "product_name", "price", "stock", "category_id"]
-        }
+        include: [{ model: Product }]
       });
       // Return OK Status and categoryData
       res.status(200).json(categoryData);
@@ -31,11 +28,8 @@ router.get('/:id', async (req, res) => {
   try {
     // Declare Category variable
     const categoryData = await Category.findByPk(req.params.id, {
-      // Include associated Product Model
-        include: { 
-          model: Product,
-          attributes: ["id", "product_name", "price", "stock", "category_id"]
-        }
+        // Include associated Product Model
+        include: [{ model: Product }]
     });
     // If specified id is not found, send 404 response and message
     if (!categoryData) {
@@ -68,7 +62,9 @@ router.put('/:id', async (req, res) => {
   try {
     // Declare Category variable
     const categoryData = await Category.update(req.body, {
-      where: {id: req.params.id }
+      where: {
+        id: req.params.id 
+      }
     });
     // If specified id is not found, send 404 response and message
     if (!categoryData) {
@@ -89,7 +85,7 @@ router.delete('/:id', async (req, res) => {
     // Declare Category variable
     const categoryData = await Category.destroy({
       where: { id: req.params.id }
-    });
+    })
     // If specified id is not found, send 404 response and message
     if (!categoryData) {
       res.status(404).json({ message: 'No Category with this id!' });
