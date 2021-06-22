@@ -4,7 +4,7 @@
 
 ## Description
 
-This is an E-Commerce Back End application that utilizes sequelize and the mysql database.
+This is an E-Commerce Back End application that utilizes sequelize and the mysql database to create an E-Commerce API using Object-relational mapping.  A full walkthrough for this project can be found [here](insertlink).
 
 ## Table of Contents 
 
@@ -18,22 +18,39 @@ This is an E-Commerce Back End application that utilizes sequelize and the mysql
 
 ## About the Project
 
+- An E-Commerce Back End application that creates a database and allows the user to make requests to the API.
+- Get, Post, Put and Delete Request routes that can be tested using [Insomina](https://insomnia.rest/).
+- This application utilizes the following npm packages: \
+      - [dotenv](https://www.npmjs.com/package/dotenv) \
+      - [express](https://www.npmjs.com/package/express) \
+      - [nodemon](https://www.npmjs.com/package/nodemon) \
+      - [mysql2](https://www.npmjs.com/package/mysql2) \
+      - [sequelize](https://www.npmjs.com/package/sequelize) 
+
 ## Installation
 
-git clone from github npm install npm start
+- [git clone from github](https://github.com/twashke/E-Commerce-Back-End) 
+- **npm install** (to install dependencies)
+- **Update** the [.env.Example](.env.EXAMPLE) file with **MYSQL password**
+- **npm start** to start server and create the mysql database
+- Stop server to seed database (Control C)
+- **npm run seed** to seed the database
+- **npm start**
+- [Insomnia](https://insomnia.rest/) to view API Requests results
 
 ## Usage
 
-Enter steps for usage here.  
+- Watch the [walkthrough](insertlinkhere).
+ 
 ![E-Commerce Back End]()
 
 ## Contributing
 
-Starter code provided
+- Starter code provided for the project.
 
 ## Tests
 
-
+- Used [Insomina](https://insomnia.rest/) to test requests to server prior to deploying.
 
 ## License
 
