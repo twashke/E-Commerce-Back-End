@@ -51,9 +51,6 @@ This is an E-Commerce Back End application that utilizes sequelize and the mysql
 Verify Tables in MYSQL 
 ![Verify Tables in MYSQL](Assets/images/verify-database-mysql.gif) /
 
-GET Requests for Products, Categories and Tags 
-![GET Requests](Assets/images/verify-GET-Requests.gif) 
-
 ## Contributing
 
 - Starter code provided for the project.
@@ -61,6 +58,9 @@ GET Requests for Products, Categories and Tags
 ## Tests
 
 - Used [Insomina](https://insomnia.rest/) to test GET, POST, PUT, DELETE Requests.
+
+GET Requests for Products, Categories and Tags 
+![GET Requests](Assets/images/verify-GET-Requests.gif) 
 
 Products POST, PUT and DELETE Request Tests
 ![Product POST PUT DELETE](Assets/images/products-post-put-delete.gif) /
