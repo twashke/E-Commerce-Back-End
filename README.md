@@ -41,8 +41,18 @@ This is an E-Commerce Back End application that utilizes sequelize and the mysql
 ## Usage
 
 - Watch the [walkthrough](insertlinkhere).
- 
-![E-Commerce Back End]()
+
+ **npm start** to create database in MYSQL 
+![Start Server and Create Database](Assets/images/server-start-drop-database.gif) /
+
+**npm run seed** in command line 
+![npm run seed](Assets/images/npm-run-seed.gif) /
+
+Verify Tables in MYSQL 
+![Verify Tables in MYSQL](Assets/images/verify-database-mysql.gif) /
+
+GET Requests for Products, Categories and Tags 
+![GET Requests](Assets/images/verify-GET-Requests.gif) 
 
 ## Contributing
 
@@ -50,7 +60,16 @@ This is an E-Commerce Back End application that utilizes sequelize and the mysql
 
 ## Tests
 
-- Used [Insomina](https://insomnia.rest/) to test requests to server prior to deploying.
+- Used [Insomina](https://insomnia.rest/) to test GET, POST, PUT, DELETE Requests.
+
+Products POST, PUT and DELETE Request Tests
+![Product POST PUT DELETE](Assets/images/products-post-put-delete.gif) /
+
+Categories POST, PUT and DELETE Request Tests
+![Categories POST PUT DELETE](Assets/images/categories-post-put-delete.gif) /
+
+Tags POST, PUT and DELETE Request Tests
+![Tags POST PUT DELETE](Assets/images/tags-post-put-delete.gif) /
 
 ## License
 
