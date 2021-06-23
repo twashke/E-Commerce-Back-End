@@ -4,7 +4,7 @@
 
 ## Description
 
-This is an E-Commerce Back End application that utilizes sequelize and the mysql database to create an E-Commerce API using Object-relational mapping.  A full walkthrough for this project can be found [here](insertlink).
+This is an E-Commerce Back End application that utilizes sequelize and the mysql database to create an E-Commerce API using Object-relational mapping.  A full walkthrough for this project can be found [here](https://drive.google.com/file/d/1604508c9n-7xAME-kXUPilh1AXrrXCYq/view) with all Get, Post, Put and Delete Requests tested in [Insomina](https://insomnia.rest/).
 
 ## Table of Contents 
 
@@ -40,7 +40,7 @@ This is an E-Commerce Back End application that utilizes sequelize and the mysql
 
 ## Usage
 
-- Watch the [walkthrough](insertlinkhere).
+- Watch the [walkthrough](https://drive.google.com/file/d/1604508c9n-7xAME-kXUPilh1AXrrXCYq/view).
 
  **npm start** to create database in MYSQL 
 ![Start Server and Create Database](Assets/images/server-start-drop-database.gif) /
